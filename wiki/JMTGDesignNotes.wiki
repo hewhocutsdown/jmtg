@@ -1,0 +1,20 @@
+#summary A main page for design notes.
+#labels Phase-Design
+
+= Introduction =
+
+This is an index for the various components of the JMTG framework.
+
+
+= Details =
+
+* JMTG
+ * Network Server
+ * Network Client
+ * Standalone Client
+  * AI
+  * Local Multiplayer
+* Library Manager
+* Card Creator
+* Set Designer
+* [FileFormatSpecification .MTG File Format]
