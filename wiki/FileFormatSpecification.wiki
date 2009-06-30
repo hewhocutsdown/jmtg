@@ -1,0 +1,15 @@
+#summary A brief introduction to the MTG File Format Specification
+#labels Phase-Design,Phase-Requirements
+
+= Introduction =
+
+A .mtg file is an encrypted .zip containing at minimum, an XML file and an image [.jpg or .png], and optionally one or more .py files.
+
+
+= Details =
+
+<p>JMTG is a game engine, and is intended to be used with both existing card designs as well as lending itself to new designs and card-swapping. To do this effectively yet securely, it implements a process similar to how many Linux repositories work. JMTG stores one or more public keys [_by default it just has one game-specific one_]. Cards are stored in .mtg files, which are saved to the cards/ directory [specified in the settings].</p>
+
+<p>The .mtg files are encrypted with the creator's private key. They are decrypted when you import them into your library. The decrypted .mtg file is a gzip-compressed folder containing an XML file [_validated against the JMTG RELAX NG XML schema_], zero or more images [_zero: uses default placeholder image; > 1: uses primary image as specified in the XML file by default_] and zero or more .py files [_if needed, they are referred to in the XML file_].</p>
+
+<p>Optionally, the XML file can specify a hash value and a remote site to compare hashes against, to ensure against player modifications when networking. This idea needs a little fleshing out - how would one ensure that each player is using the same (intended) card?</p>
