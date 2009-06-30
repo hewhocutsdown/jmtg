@@ -14,7 +14,15 @@ This is an index for the various components of the JMTG framework.
  * Standalone Client
   * AI
   * Local Multiplayer
-* Library Manager
-* Card Creator
-* Set Designer
-* [FileFormatSpecification .MTG File Format]
+ * [CardManager Card Manager]
+ * [CardCreator Card Creator]
+ * [SetDesigner Set Designer]
+ * [FileFormatSpecification .MTG File Format]
+
+==Resources==
+
+* [http://articles.slicehost.com/2007/9/5/introduction-to-subversion Intro to SVN]
+* [http://relaxng.org/ Intro to RELAX NG]
+* [http://www.freenet.org.nz/ezPyCrypto/ ezPyCrypto]
+* [http://www.freenet.org.nz/ezPyCrypto/detail/index.html ezPyCrypto Docs]
+* [http://www.dlitz.net/software/pycrypto/ PyCrypto]
