@@ -14,7 +14,7 @@ This is an index for the various components of the JMTG framework.
  * Standalone Client
   * Local Multiplayer
  * AI
- * Rules Engine [Modded rules, revisions, etc]
+ * Rules Engine (Modded rules, revisions, etc)
  * [CardManager Card Manager]
  * [CardCreator Card Creator]
  * [SetDesigner Set Designer]
