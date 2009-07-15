@@ -57,5 +57,6 @@ print hmac_object.hexdigest()
 It's probably best to use .update() since that way you don't have to instantiate the hmac class everytime and it's a serious performance boost if you want to have a lot of hex digest of the message.
 
 http://docs.python.org/library/hmac.html
+http://docs.python.org/library/hashlib.html
 
-
+http://stackoverflow.com/questions/17250/create-an-encrypted-zip-file-in-python
