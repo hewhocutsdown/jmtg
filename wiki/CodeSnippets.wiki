@@ -1,0 +1,14 @@
+#summary Bits & pieces that may come in useful
+#labels Phase-Design
+
+= hashlib =
+
+{{{
+def _initDigest(self):
+    import os, sys, hashlib
+    digester = hashlib.md5()
+    digester.update(self._options.get('code').encode("utf-8"))
+    self._digest = digester.hexdigest()
+}}}
+
+`os.urandom`
