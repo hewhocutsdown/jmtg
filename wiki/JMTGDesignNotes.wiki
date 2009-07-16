@@ -29,3 +29,4 @@ This is an index for the various components of the JMTG framework.
  * [http://www.dlitz.net/software/pycrypto/ PyCrypto]
  * [http://www.dlitz.net/software/pycrypto/doc/ PyCrypto Docs]
  * [http://code.google.com/p/keyczar/ KeyCzar]
+ * [http://code.google.com/p/python-gnupg/ Python-GPG]
