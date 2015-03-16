@@ -1,0 +1,59 @@
+# Hash/Encryption/Decryption #
+
+```
+def _initDigest(self):
+    import os, sys, hashlib
+    digester = hashlib.md5()
+    digester.update(self._options.get('code').encode("utf-8"))
+    self._digest = digester.hexdigest()
+```
+
+`os.urandom`
+
+`hashlib.md5()`
+
+Break the file into 128-byte chunks and feed them to MD5 consecutively using update().
+
+This takes advantage of the fact that MD5 has 128-byte digest blocks. Basically, when MD5 digest()s the file, this is exactly what it is doing.
+
+If you make sure you free the memory on each iteration (i.e. not read the entire file to memory), this shall take no more than 128 bytes of memory.
+
+One example is to read the chunks like so:
+
+```
+f = open(fileName)
+while not endOfFile:
+    f.read(128)
+```
+
+The Python hashlib.md5 doesn't seem to take an "cryptographic key" argument. It only accepts 1 argument.
+
+You have to use the hmac module together with md5 or sha. Per default it uses md5:
+
+In [1](1.md): import hmac, hashlib
+In [2](2.md): hmac.new('key', 'msg').hexdigest()
+Out[2](2.md): '18e3548c59ad40dd03907b7aeee71d67'
+In [3](3.md): hmac.new('key2', 'msg').hexdigest()
+Out[3](3.md): 'a4bde113179bc2a7c6ac9ad7309ea073'
+In [4](4.md): hmac.new('key', 'msg', hashlib.sha256).hexdigest()
+Out[4](4.md): '2d93cbc1be167bcb1637a4a23cbff01a7878f0c50ee833954ea5221bb1b8c628'
+
+Your example would probably look something like:
+
+hmac.new(CryptoKey, '^'.join([login, seq, time, amo]), hashlib.md5).hexdigest()
+
+or
+
+What you probably want is:
+
+import hmac
+hmac\_object = hmac.new(crypto\_key)
+hmac\_object.update('^'.join([login, seq, time, amo, ''])
+print hmac\_object.hexdigest()
+
+It's probably best to use .update() since that way you don't have to instantiate the hmac class everytime and it's a serious performance boost if you want to have a lot of hex digest of the message.
+
+http://docs.python.org/library/hmac.html
+http://docs.python.org/library/hashlib.html
+
+http://stackoverflow.com/questions/17250/create-an-encrypted-zip-file-in-python
